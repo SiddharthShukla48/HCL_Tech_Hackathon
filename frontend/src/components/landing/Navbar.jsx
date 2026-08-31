@@ -15,20 +15,20 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-base-100/80 backdrop-blur-lg border-b border-base-300/50 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-base-100/90 backdrop-blur-lg border-base-content/10 py-3 shadow-sm' : 'bg-transparent border-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <Logo className="w-8 h-8" />
           <div className="flex items-center text-2xl">
             <span className="font-sans font-bold text-primary text-3xl">Path</span>
             <span className="font-sans font-bold text-secondary text-3xl">Finder</span>
           </div>
-        </div>
+        </a>
       
       <div className="hidden md:flex items-center gap-8 font-sans text-sm font-medium text-base-content/80">
-        <a href="#" className="hover:text-primary transition-colors">Home</a>
-        <a href="#" className="hover:text-primary transition-colors">Features</a>
-        <a href="#" className="hover:text-primary transition-colors">FAQs</a>
+        <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-primary transition-colors cursor-pointer">Home</a>
+        <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-primary transition-colors cursor-pointer">Features</a>
+        <a href="#faqs" onClick={(e) => { e.preventDefault(); document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-primary transition-colors cursor-pointer">FAQs</a>
       </div>
 
         <div className="flex items-center gap-4">

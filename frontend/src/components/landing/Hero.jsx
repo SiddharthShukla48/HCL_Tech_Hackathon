@@ -22,7 +22,7 @@ export default function Hero() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-base-100 text-base-content overflow-hidden flex flex-col">
+    <div id="home" className="relative min-h-screen bg-base-100 text-base-content overflow-hidden flex flex-col">
       {/* Background Glow */}
       <div className="absolute inset-0 z-0 pointer-events-none flex justify-center items-center overflow-hidden">
         <div className="absolute w-[60vw] h-[60vh] bg-primary/20 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen transform -translate-x-1/4 -translate-y-1/4" />
@@ -101,7 +101,7 @@ export default function Hero() {
               <button
                 key={chip}
                 onClick={() => handleChipClick(chip)}
-                className="px-4 py-2 rounded-lg text-sm font-medium bg-secondary/10 text-secondary border border-secondary/30 hover:bg-secondary/20 transition-colors"
+                className="px-4 py-2 rounded-lg text-sm font-medium bg-base-200 text-base-content border border-base-300 hover:bg-base-300 transition-colors"
               >
                 {chip}
               </button>
