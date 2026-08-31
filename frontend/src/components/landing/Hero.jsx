@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import ChatInput from '../chat/ChatInput';
+import ChatInput from '../ChatInput';
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex items-center gap-4 mb-10"
         >
-          <button onClick={() => handleSearch(query)} className="px-8 py-3 rounded-lg bg-primary text-primary-content font-medium hover:opacity-90 shadow-lg shadow-primary/20 transition-all">
+          <button onClick={() => navigate('/dashboard')} className="px-8 py-3 rounded-lg bg-primary text-primary-content font-medium hover:opacity-90 shadow-lg shadow-primary/20 transition-all">
             Get started
           </button>
           <button onClick={() => handleSearch(query)} className="px-8 py-3 rounded-lg bg-base-200 dark:bg-base-300 text-base-content border border-base-300 hover:bg-base-300 dark:hover:bg-base-200 shadow-sm transition-all">

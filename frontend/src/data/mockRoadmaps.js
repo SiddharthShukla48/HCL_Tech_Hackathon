@@ -3,7 +3,7 @@ export const mockRoadmapList = [
     id: "roadmap_001",
     title: "Data Analysis with SQL & Python",
     shortDescription: "A beginner-friendly path to become job-ready in data analysis.",
-    progressPercent: 38,
+    progressPercent: 0,
     completed: false,
     durationWeeks: 8,
     skillTags: ["SQL", "Python"]

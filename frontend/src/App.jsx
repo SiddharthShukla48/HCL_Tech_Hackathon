@@ -6,6 +6,7 @@ import ChatPage from "./pages/Chat";
 import RoadmapsPage from "./pages/Roadmaps";
 import RoadmapDetailPage from "./pages/RoadmapDetails";
 import DashboardPage from "./pages/Dashboard";
+import { RoadmapProvider } from "./contexts/RoadmapContext";
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
         <Route element={<HomeLayout />}>
           <Route path="/" element={<LandingPage />} />
         </Route>
-        <Route element={<AppLayout />}>
+        <Route element={
+          <RoadmapProvider>
+            <AppLayout />
+          </RoadmapProvider>
+        }>
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/roadmaps" element={<RoadmapsPage />} />
           <Route path="/roadmaps/:id" element={<RoadmapDetailPage />} />
