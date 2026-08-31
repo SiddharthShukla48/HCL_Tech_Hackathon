@@ -1,20 +1,7 @@
-/**
- * RoadmapContext — single source of truth for all roadmap state.
- *
- * Persistence:
- *   User completion state (which steps/resources/roadmaps are checked) is saved to
- *   localStorage under the key "pathfinder_completion". This separates concerns:
- *   - Course content (titles, descriptions, steps) = comes from API
- *   - User progress (what they checked) = stored locally, ready to swap for a real API call
- *
- *   When backend is ready, replace the localStorage read/write with API calls to a
- *   POST /progress endpoint. No component changes needed — only this file changes.
- */
 import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { api } from '../services/api';
 
 const RoadmapContext = createContext(null);
-const STORAGE_KEY = 'pathfinder_completion';
 
 // Helpers -------------------------------------------------------------------
 
@@ -25,25 +12,6 @@ function deriveProgress(steps, resources) {
   return Math.round((done / total) * 100);
 }
 
-/** Load saved completion state from localStorage */
-function loadSavedState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-/** Persist completion state to localStorage */
-function saveState(state) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // localStorage unavailable — silently ignore
-  }
-}
-
 // Provider ------------------------------------------------------------------
 
 export function RoadmapProvider({ children }) {
@@ -51,29 +19,25 @@ export function RoadmapProvider({ children }) {
   const [roadmaps, setRoadmaps] = useState([]);
   // Detailed data per roadmap: { [id]: { ...detail, steps: [{...step, completed}], resources: [...] } }
   const [detailedMap, setDetailedMap] = useState({});
-  // Flat completion state (persisted to localStorage)
-  // { [roadmapId]: { completed: bool, steps: { [stepId]: bool }, resources: { [resId]: bool } } }
-  const [completionState, setCompletionState] = useState(loadSavedState);
+  // Flat completion state is kept in memory only, never persisted to localStorage.
+  const [completionState, setCompletionState] = useState({});
 
-  // ── Initial load: fetch roadmap list ──────────────────────────────────────
-  useEffect(() => {
-    api.getRoadmaps().then(list => {
-      setRoadmaps(list.map(r => {
-        const saved = completionState[r.id] || {};
-        return {
-          ...r,
-          progressPercent: 0,             // will be updated once detail is loaded
-          completed: saved.completed ?? false,
-        };
-      }));
+  // ── Add a generated roadmap from chat ──────────────────────────────────────
+  const addGeneratedRoadmap = useCallback((roadmapSummary) => {
+    setRoadmaps(prev => {
+      // Check if already exists
+      const exists = prev.some(r => r.id === roadmapSummary.id);
+      if (exists) return prev;
+      return [
+        ...prev,
+        {
+          ...roadmapSummary,
+          progressPercent: 0,
+          completed: false,
+        },
+      ];
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // ── Persist completionState to localStorage on every change ───────────────
-  useEffect(() => {
-    saveState(completionState);
-  }, [completionState]);
 
   // ── Sync progressPercent back into roadmap list when details change ────────
   useEffect(() => {
@@ -203,7 +167,7 @@ export function RoadmapProvider({ children }) {
 
   return (
     <RoadmapContext.Provider
-      value={{ roadmaps, detailedMap, loadDetail, toggleStep, toggleResource, toggleRoadmapCompleted, stats }}
+      value={{ roadmaps, detailedMap, loadDetail, toggleStep, toggleResource, toggleRoadmapCompleted, addGeneratedRoadmap, stats }}
     >
       {children}
     </RoadmapContext.Provider>

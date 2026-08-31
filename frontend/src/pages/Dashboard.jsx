@@ -7,8 +7,9 @@ import {
 import { Target, Trophy, Clock, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
-import { mockUser } from '../data/mockUser';
 import { useRoadmaps } from '../contexts/RoadmapContext';
+
+const AUTH_USER = { id: 'user_001', name: 'Siddharth Shukla' };
 
 // Custom tooltip — avoids CSS variable parsing issues inside recharts inline styles
 const CustomTooltip = ({ active, payload, label }) => {
@@ -37,7 +38,7 @@ export default function Dashboard() {
     api.getDashboard().then(res => setActivityData(res));
   }, []);
 
-  const firstName = mockUser?.name?.split(' ')[0] ?? '';
+  const firstName = AUTH_USER.name.split(' ')[0] ?? '';
 
   // Use context-derived stats (live), fall back to 0 while loading
   const { overallProgressPercent, roadmapsCompleted, totalRoadmaps } = stats;

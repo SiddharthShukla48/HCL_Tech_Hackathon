@@ -1,0 +1,48 @@
+{
+  "resources": [
+    {"id": "res001", "title": "Python for Everybody", "type": "course", "provider": "Coursera", "rating": 4.8, "review_count": 25000, "est_hours": 20, "difficulty": "beginner", "url": "https://example.com/res001", "teaches": [{"topic_id": "ds_python_basics", "relevance": 0.95}]},
+    {"id": "res002", "title": "Python Crash Course", "type": "article", "provider": "freeCodeCamp", "rating": 4.5, "review_count": 800, "est_hours": 3, "difficulty": "beginner", "url": "https://example.com/res002", "teaches": [{"topic_id": "ds_python_basics", "relevance": 0.85}]},
+
+    {"id": "res003", "title": "Statistics Fundamentals", "type": "course", "provider": "Udacity", "rating": 4.6, "review_count": 4000, "est_hours": 15, "difficulty": "beginner", "url": "https://example.com/res003", "teaches": [{"topic_id": "ds_stats_basics", "relevance": 0.9}]},
+    {"id": "res004", "title": "Intro to Probability & Stats", "type": "article", "provider": "Independent", "rating": 4.2, "review_count": 300, "est_hours": 4, "difficulty": "beginner", "url": "https://example.com/res004", "teaches": [{"topic_id": "ds_stats_basics", "relevance": 0.8}]},
+
+    {"id": "res005", "title": "Data Analysis with Pandas", "type": "course", "provider": "Coursera", "rating": 4.7, "review_count": 12000, "est_hours": 18, "difficulty": "beginner", "url": "https://example.com/res005", "teaches": [{"topic_id": "ds_data_manipulation", "relevance": 0.93}]},
+    {"id": "res006", "title": "Pandas Practice Project", "type": "project", "provider": "Independent", "rating": 4.4, "review_count": 150, "est_hours": 6, "difficulty": "beginner", "url": "https://example.com/res006", "teaches": [{"topic_id": "ds_data_manipulation", "relevance": 0.8}, {"topic_id": "ds_data_visualization", "relevance": 0.3}]},
+
+    {"id": "res007", "title": "Data Visualization with Matplotlib & Seaborn", "type": "course", "provider": "Coursera", "rating": 4.6, "review_count": 6000, "est_hours": 10, "difficulty": "beginner", "url": "https://example.com/res007", "teaches": [{"topic_id": "ds_data_visualization", "relevance": 0.92}]},
+    {"id": "res008", "title": "Storytelling with Data", "type": "article", "provider": "Independent", "rating": 4.3, "review_count": 500, "est_hours": 2, "difficulty": "beginner", "url": "https://example.com/res008", "teaches": [{"topic_id": "ds_data_visualization", "relevance": 0.75}]},
+
+    {"id": "res009", "title": "Machine Learning Specialization", "type": "course", "provider": "Coursera", "rating": 4.9, "review_count": 30000, "est_hours": 40, "difficulty": "intermediate", "url": "https://example.com/res009", "teaches": [{"topic_id": "ds_ml_fundamentals", "relevance": 0.95}]},
+    {"id": "res010", "title": "ML Basics Video Series", "type": "video", "provider": "YouTube", "rating": 4.4, "review_count": 2000, "est_hours": 8, "difficulty": "beginner", "url": "https://example.com/res010", "teaches": [{"topic_id": "ds_ml_fundamentals", "relevance": 0.7}]},
+
+    {"id": "res011", "title": "Supervised Learning Deep Dive", "type": "course", "provider": "Udacity", "rating": 4.5, "review_count": 3000, "est_hours": 20, "difficulty": "intermediate", "url": "https://example.com/res011", "teaches": [{"topic_id": "ds_supervised_learning", "relevance": 0.9}]},
+    {"id": "res012", "title": "Titanic Classification Project", "type": "project", "provider": "Independent", "rating": 4.6, "review_count": 1200, "est_hours": 8, "difficulty": "intermediate", "url": "https://example.com/res012", "teaches": [{"topic_id": "ds_supervised_learning", "relevance": 0.85}]},
+
+    {"id": "res013", "title": "Deep Learning Specialization", "type": "course", "provider": "Coursera", "rating": 4.8, "review_count": 22000, "est_hours": 45, "difficulty": "advanced", "url": "https://example.com/res013", "teaches": [{"topic_id": "ds_deep_learning", "relevance": 0.95}]},
+    {"id": "res014", "title": "Neural Networks from Scratch", "type": "article", "provider": "Independent", "rating": 4.3, "review_count": 400, "est_hours": 5, "difficulty": "advanced", "url": "https://example.com/res014", "teaches": [{"topic_id": "ds_deep_learning", "relevance": 0.7}]},
+
+    {"id": "res015", "title": "End-to-End ML Capstone Project", "type": "project", "provider": "Independent", "rating": 4.7, "review_count": 600, "est_hours": 25, "difficulty": "advanced", "url": "https://example.com/res015", "teaches": [{"topic_id": "ds_capstone_project", "relevance": 0.9}, {"topic_id": "ds_deep_learning", "relevance": 0.2}]},
+    {"id": "res016", "title": "Data Science Portfolio Guide", "type": "article", "provider": "freeCodeCamp", "rating": 4.4, "review_count": 900, "est_hours": 3, "difficulty": "advanced", "url": "https://example.com/res016", "teaches": [{"topic_id": "ds_capstone_project", "relevance": 0.75}]},
+
+    {"id": "res017", "title": "HTML & CSS Full Course", "type": "course", "provider": "freeCodeCamp", "rating": 4.8, "review_count": 18000, "est_hours": 15, "difficulty": "beginner", "url": "https://example.com/res017", "teaches": [{"topic_id": "wd_html_css", "relevance": 0.95}]},
+    {"id": "res018", "title": "CSS Flexbox & Grid", "type": "article", "provider": "Independent", "rating": 4.5, "review_count": 700, "est_hours": 3, "difficulty": "beginner", "url": "https://example.com/res018", "teaches": [{"topic_id": "wd_html_css", "relevance": 0.8}]},
+
+    {"id": "res019", "title": "JavaScript Fundamentals", "type": "course", "provider": "Udacity", "rating": 4.6, "review_count": 9000, "est_hours": 20, "difficulty": "beginner", "url": "https://example.com/res019", "teaches": [{"topic_id": "wd_javascript_basics", "relevance": 0.92}]},
+    {"id": "res020", "title": "Eloquent JavaScript", "type": "article", "provider": "Independent", "rating": 4.7, "review_count": 1500, "est_hours": 10, "difficulty": "beginner", "url": "https://example.com/res020", "teaches": [{"topic_id": "wd_javascript_basics", "relevance": 0.85}]},
+
+    {"id": "res021", "title": "Responsive Web Design Certification", "type": "course", "provider": "freeCodeCamp", "rating": 4.7, "review_count": 14000, "est_hours": 12, "difficulty": "beginner", "url": "https://example.com/res021", "teaches": [{"topic_id": "wd_responsive_design", "relevance": 0.9}]},
+    {"id": "res022", "title": "Mobile-First Design Principles", "type": "article", "provider": "Independent", "rating": 4.2, "review_count": 250, "est_hours": 2, "difficulty": "beginner", "url": "https://example.com/res022", "teaches": [{"topic_id": "wd_responsive_design", "relevance": 0.75}]},
+
+    {"id": "res023", "title": "React - The Complete Guide", "type": "course", "provider": "Udacity", "rating": 4.7, "review_count": 16000, "est_hours": 30, "difficulty": "intermediate", "url": "https://example.com/res023", "teaches": [{"topic_id": "wd_frontend_framework", "relevance": 0.93}]},
+    {"id": "res024", "title": "Build a Todo App in React", "type": "project", "provider": "Independent", "rating": 4.5, "review_count": 400, "est_hours": 8, "difficulty": "intermediate", "url": "https://example.com/res024", "teaches": [{"topic_id": "wd_frontend_framework", "relevance": 0.85}]},
+
+    {"id": "res025", "title": "Node.js & Express Basics", "type": "course", "provider": "Coursera", "rating": 4.5, "review_count": 7000, "est_hours": 18, "difficulty": "intermediate", "url": "https://example.com/res025", "teaches": [{"topic_id": "wd_backend_basics", "relevance": 0.9}]},
+    {"id": "res026", "title": "REST API Design Principles", "type": "article", "provider": "Independent", "rating": 4.3, "review_count": 350, "est_hours": 3, "difficulty": "intermediate", "url": "https://example.com/res026", "teaches": [{"topic_id": "wd_backend_basics", "relevance": 0.78}]},
+
+    {"id": "res027", "title": "SQL & Databases for Developers", "type": "course", "provider": "Coursera", "rating": 4.6, "review_count": 8000, "est_hours": 15, "difficulty": "intermediate", "url": "https://example.com/res027", "teaches": [{"topic_id": "wd_databases", "relevance": 0.9}]},
+    {"id": "res028", "title": "MongoDB Crash Course", "type": "video", "provider": "YouTube", "rating": 4.4, "review_count": 3000, "est_hours": 4, "difficulty": "intermediate", "url": "https://example.com/res028", "teaches": [{"topic_id": "wd_databases", "relevance": 0.75}]},
+
+    {"id": "res029", "title": "Full-Stack MERN Capstone Project", "type": "project", "provider": "Independent", "rating": 4.6, "review_count": 500, "est_hours": 30, "difficulty": "advanced", "url": "https://example.com/res029", "teaches": [{"topic_id": "wd_fullstack_project", "relevance": 0.92}, {"topic_id": "wd_frontend_framework", "relevance": 0.2}, {"topic_id": "wd_databases", "relevance": 0.2}]},
+    {"id": "res030", "title": "Deploying Full-Stack Apps", "type": "article", "provider": "freeCodeCamp", "rating": 4.3, "review_count": 600, "est_hours": 3, "difficulty": "advanced", "url": "https://example.com/res030", "teaches": [{"topic_id": "wd_fullstack_project", "relevance": 0.7}]}
+  ]
+}

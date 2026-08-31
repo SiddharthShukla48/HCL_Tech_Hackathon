@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import HomeLayout from "./layouts/HomeLayout";
 import AppLayout from "./layouts/AppLayout";
 import LandingPage from "./pages/Landing";
@@ -8,7 +9,21 @@ import RoadmapDetailPage from "./pages/RoadmapDetails";
 import DashboardPage from "./pages/Dashboard";
 import { RoadmapProvider } from "./contexts/RoadmapContext";
 
+const STORAGE_KEYS = [
+  'pathfinder_chat_messages',
+  'pathfinder_chat_qc',
+  'pathfinder_completion',
+];
+
+function clearLegacyStorage() {
+  STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+}
+
 function App() {
+  useEffect(() => {
+    clearLegacyStorage();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

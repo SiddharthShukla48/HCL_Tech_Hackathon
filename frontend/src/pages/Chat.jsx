@@ -7,6 +7,7 @@ import ChatInput from '../components/ChatInput';
 import ThinkingLoader from '../components/ThinkingLoader';
 import Logo from '../components/landing/Logo';
 import { api } from '../services/api';
+import { useRoadmaps } from '../contexts/RoadmapContext';
 
 // Renders one chat bubble
 function ChatBubble({ message }) {
@@ -64,42 +65,28 @@ export default function Chat() {
   // Hero navigates with state.initialQuery
   const initialQuery = location.state?.initialQuery || location.state?.query || '';
 
-  const [messages, setMessages] = useState(() => {
-    try {
-      const saved = localStorage.getItem('pathfinder_chat_messages');
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+  const { addGeneratedRoadmap, loadDetail } = useRoadmaps();
+
+  const [messages, setMessages] = useState([]);
   // isGenerating = only true for the final roadmap response (takes 3s)
   const [isGenerating, setIsGenerating] = useState(false);
-  const [questionCount, setQuestionCount] = useState(() => {
-    try {
-      const saved = localStorage.getItem('pathfinder_chat_qc');
-      return saved ? parseInt(saved, 10) : 0;
-    } catch {
-      return 0;
-    }
-  });
+  const [questionCount, setQuestionCount] = useState(0);
   const [inputValue, setInputValue] = useState('');
+  // Save the original user goal to pass to generateRoadmapSummary
+  const [originalGoal, setOriginalGoal] = useState('');
   // tracks if we've already submitted the initial landing-page query
   const initialFired = useRef(false);
 
   const endOfMessagesRef = useRef(null);
 
-  // Persist messages and question count on every change
-  useEffect(() => {
-    localStorage.setItem('pathfinder_chat_messages', JSON.stringify(messages));
-    localStorage.setItem('pathfinder_chat_qc', questionCount.toString());
-  }, [messages, questionCount]);
-
   // Provide a way to manually clear the chat
   const handleClearChat = () => {
     setMessages([]);
     setQuestionCount(0);
+    setOriginalGoal('');
     localStorage.removeItem('pathfinder_chat_messages');
     localStorage.removeItem('pathfinder_chat_qc');
+    localStorage.removeItem('pathfinder_completion');
   };
 
   // Auto-scroll to bottom
@@ -125,15 +112,26 @@ export default function Chat() {
 
     try {
       if (questionCount < 2) {
-        // Clarifying questions — no ThinkingLoader, just a small pause
+        // Clarifying questions — save original goal on first message
+        if (questionCount === 0) {
+          setOriginalGoal(text);
+        }
         const response = await api.getFollowUpQuestion(questionCount + 1);
         setMessages(prev => [...prev, { id: `a_${Date.now()}`, ...response }]);
         setQuestionCount(prev => prev + 1);
       } else {
-        // Final roadmap — show the ThinkingLoader (LLM is "thinking")
+        // Final roadmap — use the ORIGINAL goal, not the response to clarifying question
         setIsGenerating(true);
-        const response = await api.generateRoadmapSummary();
+        const response = await api.generateRoadmapSummary(originalGoal || text);
         setMessages(prev => [...prev, { id: `a_${Date.now()}`, ...response }]);
+        
+        // Add the generated roadmap to the context and load its details
+        if (response.type === 'roadmap_summary' && response.roadmapId) {
+          const roadmapDetail = await api.getRoadmapDetail(response.roadmapId);
+          addGeneratedRoadmap(roadmapDetail);
+          loadDetail(response.roadmapId);
+        }
+        
         setIsGenerating(false);
       }
     } catch (err) {

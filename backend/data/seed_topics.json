@@ -1,0 +1,38 @@
+{
+  "topics": [
+    {"id": "ds_python_basics", "name": "Python Basics", "domain": "Data Science", "difficulty_level": "beginner", "description": "Core Python syntax, data types, control flow, functions."},
+    {"id": "ds_stats_basics", "name": "Statistics Basics", "domain": "Data Science", "difficulty_level": "beginner", "description": "Descriptive stats, probability, distributions."},
+    {"id": "ds_data_manipulation", "name": "Data Manipulation", "domain": "Data Science", "difficulty_level": "beginner", "description": "Working with tabular data using Pandas."},
+    {"id": "ds_data_visualization", "name": "Data Visualization", "domain": "Data Science", "difficulty_level": "beginner", "description": "Communicating insights visually."},
+    {"id": "ds_ml_fundamentals", "name": "ML Fundamentals", "domain": "Data Science", "difficulty_level": "intermediate", "description": "Core machine learning concepts and workflow."},
+    {"id": "ds_supervised_learning", "name": "Supervised Learning", "domain": "Data Science", "difficulty_level": "intermediate", "description": "Regression and classification algorithms."},
+    {"id": "ds_deep_learning", "name": "Deep Learning", "domain": "Data Science", "difficulty_level": "advanced", "description": "Neural networks and modern architectures."},
+    {"id": "ds_capstone_project", "name": "DS Capstone Project", "domain": "Data Science", "difficulty_level": "advanced", "description": "End-to-end applied project."},
+
+    {"id": "wd_html_css", "name": "HTML & CSS", "domain": "Web Development", "difficulty_level": "beginner", "description": "Markup and styling fundamentals."},
+    {"id": "wd_javascript_basics", "name": "JavaScript Basics", "domain": "Web Development", "difficulty_level": "beginner", "description": "Core JS syntax, DOM, events."},
+    {"id": "wd_responsive_design", "name": "Responsive Design", "domain": "Web Development", "difficulty_level": "beginner", "description": "Layouts that adapt across devices."},
+    {"id": "wd_frontend_framework", "name": "Frontend Framework (React)", "domain": "Web Development", "difficulty_level": "intermediate", "description": "Component-based UI development."},
+    {"id": "wd_backend_basics", "name": "Backend Basics", "domain": "Web Development", "difficulty_level": "intermediate", "description": "Server-side logic, APIs with Node/Express."},
+    {"id": "wd_databases", "name": "Databases", "domain": "Web Development", "difficulty_level": "intermediate", "description": "Relational and NoSQL data storage."},
+    {"id": "wd_fullstack_project", "name": "Full-Stack Capstone Project", "domain": "Web Development", "difficulty_level": "advanced", "description": "End-to-end applied project."}
+  ],
+  "prerequisites": [
+    {"from": "ds_python_basics", "to": "ds_data_manipulation"},
+    {"from": "ds_data_manipulation", "to": "ds_data_visualization"},
+    {"from": "ds_data_manipulation", "to": "ds_ml_fundamentals"},
+    {"from": "ds_stats_basics", "to": "ds_ml_fundamentals"},
+    {"from": "ds_ml_fundamentals", "to": "ds_supervised_learning"},
+    {"from": "ds_supervised_learning", "to": "ds_deep_learning"},
+    {"from": "ds_deep_learning", "to": "ds_capstone_project"},
+    {"from": "ds_data_visualization", "to": "ds_capstone_project"},
+
+    {"from": "wd_html_css", "to": "wd_javascript_basics"},
+    {"from": "wd_html_css", "to": "wd_responsive_design"},
+    {"from": "wd_javascript_basics", "to": "wd_frontend_framework"},
+    {"from": "wd_javascript_basics", "to": "wd_backend_basics"},
+    {"from": "wd_backend_basics", "to": "wd_databases"},
+    {"from": "wd_frontend_framework", "to": "wd_fullstack_project"},
+    {"from": "wd_databases", "to": "wd_fullstack_project"}
+  ]
+}
