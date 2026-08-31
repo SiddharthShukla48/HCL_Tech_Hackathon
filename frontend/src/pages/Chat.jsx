@@ -122,10 +122,10 @@ export default function Chat() {
           {messages.length === 0 && !isGenerating ? (
             // Empty state
             <div className="h-[60vh] flex flex-col items-center justify-center text-center px-4">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-sm border border-primary/10">
+              <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-primary mb-6 shadow-sm border border-primary/10">
                 <Sparkles className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl font-display font-bold text-base-content mb-3">
+              <h2 className="text-3xl font-display font-bold text-primary mb-3">
                 What do you want to learn?
               </h2>
               <p className="text-base-content/60 font-sans max-w-md text-base">

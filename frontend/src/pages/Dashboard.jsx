@@ -50,8 +50,8 @@ export default function Dashboard() {
     <div className="p-8 max-w-7xl mx-auto w-full overflow-auto">
       {/* Greeting */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="text-4xl font-display font-bold text-base-content mb-2">
-          Welcome back, <span className="text-primary">{firstName}</span>
+        <h1 className="text-4xl font-display font-bold text-primary mb-2">
+          Welcome back, <span className="text-secondary">{firstName}</span>
         </h1>
         <p className="text-base-content/60 font-sans">
           Here's a snapshot of your learning journey.
