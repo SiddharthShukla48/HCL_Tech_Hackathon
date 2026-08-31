@@ -64,15 +64,43 @@ export default function Chat() {
   // Hero navigates with state.initialQuery
   const initialQuery = location.state?.initialQuery || location.state?.query || '';
 
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pathfinder_chat_messages');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
   // isGenerating = only true for the final roadmap response (takes 3s)
   const [isGenerating, setIsGenerating] = useState(false);
-  const [questionCount, setQuestionCount] = useState(0);
+  const [questionCount, setQuestionCount] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pathfinder_chat_qc');
+      return saved ? parseInt(saved, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
   const [inputValue, setInputValue] = useState('');
   // tracks if we've already submitted the initial landing-page query
   const initialFired = useRef(false);
 
   const endOfMessagesRef = useRef(null);
+
+  // Persist messages and question count on every change
+  useEffect(() => {
+    localStorage.setItem('pathfinder_chat_messages', JSON.stringify(messages));
+    localStorage.setItem('pathfinder_chat_qc', questionCount.toString());
+  }, [messages, questionCount]);
+
+  // Provide a way to manually clear the chat
+  const handleClearChat = () => {
+    setMessages([]);
+    setQuestionCount(0);
+    localStorage.removeItem('pathfinder_chat_messages');
+    localStorage.removeItem('pathfinder_chat_qc');
+  };
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -115,10 +143,20 @@ export default function Chat() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-base-100">
+    <div className="h-full flex flex-col bg-base-100 relative">
+      {messages.length > 0 && (
+        <div className="absolute top-4 right-6 z-10">
+          <button
+            onClick={handleClearChat}
+            className="px-3 py-1.5 rounded-lg bg-base-200 hover:bg-error/20 hover:text-error text-xs font-bold font-sans text-base-content/60 transition-colors"
+          >
+            Clear Chat
+          </button>
+        </div>
+      )}
       {/* Messages area */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-4 py-8">
+        <div className="max-w-3xl mx-auto px-4 py-8 mt-6">
           {messages.length === 0 && !isGenerating ? (
             // Empty state
             <div className="h-[60vh] flex flex-col items-center justify-center text-center px-4">

@@ -104,7 +104,7 @@ export const api = {
     await delay(1000);
     if (step === 1)
       return { role: 'assistant', type: 'question', content: "What's your current skill level — beginner, intermediate, or advanced?" };
-    return { role: 'assistant', type: 'question', content: 'Any specific tools or areas — SQL, Python, Excel?' };
+    return { role: 'assistant', type: 'question', content: 'Any specific tools or areas you would like to focus on?' };
     // ── Replace above with: ──
     // const res = await fetch(`${BASE_URL}/api/chat/question`, {
     //   method: 'POST',
