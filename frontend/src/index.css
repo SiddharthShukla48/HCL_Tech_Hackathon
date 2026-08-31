@@ -1,15 +1,15 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 @theme {
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "IBM Plex Sans", sans-serif;
   --font-sans: "IBM Plex Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
 
   /* brand colors — pulled from your palette */
   --color-primary: #65c3c8;          /* teal */
   --color-primary-content: #ffffff;
-  --color-secondary: #ef9fbc;        /* pink */
-  --color-secondary-content: #2b0a1d;
+  --color-secondary: #818cf8;        /* indigo */
+  --color-secondary-content: #ffffff;
   --color-accent: #eeaf3a;           /* orange/gold */
   --color-accent-content: #2b1b00;
   --color-neutral: #291334;          /* dark plum */

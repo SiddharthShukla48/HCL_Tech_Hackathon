@@ -20,7 +20,6 @@ function App() {
           <Route path="/roadmaps/:id" element={<RoadmapDetailPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
