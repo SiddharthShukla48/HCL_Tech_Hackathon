@@ -47,7 +47,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="px-4 py-1 rounded-full border border-base-300/50 bg-base-200/50 backdrop-blur-sm text-xs font-medium text-base-content/80 tracking-wide font-sans shadow-sm">
-            trusted by 5k+ customers
+            Trusted by 5k+ customers
           </div>
         </motion.div>
 
