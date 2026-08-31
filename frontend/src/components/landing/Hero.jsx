@@ -31,7 +31,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-4 pb-24 text-center max-w-4xl mx-auto w-full">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-32 pb-24 text-center max-w-4xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,10 +55,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight"
+          className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-primary"
         >
           Smarter Learning <br/>
-          <span className="italic text-primary font-serif font-medium">Every Single Day</span>
+          <span className="italic text-secondary font-serif font-medium">Every Single Day</span>
         </motion.h1>
 
         <motion.p 
