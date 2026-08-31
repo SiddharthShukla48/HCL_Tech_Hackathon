@@ -76,8 +76,8 @@ export default function Roadmaps() {
   return (
     <div className="p-8 max-w-7xl mx-auto w-full">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="text-4xl font-display font-bold text-primary mb-2 flex items-center gap-3">
-          My <span className="text-secondary">Roadmaps</span>
+        <h1 className="text-4xl font-display font-bold text-secondary mb-2 flex items-center gap-3">
+          My <span className="text-primary">Roadmaps</span>
         </h1>
         <p className="text-base-content/70 font-sans">
           Track your progress and access your personalized learning paths.

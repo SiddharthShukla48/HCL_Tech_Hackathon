@@ -37,7 +37,7 @@ export default function Dashboard() {
     api.getDashboard().then(res => setActivityData(res));
   }, []);
 
-  const firstName = mockUser.name.split(' ')[0];
+  const firstName = mockUser?.name?.split(' ')[0] ?? '';
 
   // Use context-derived stats (live), fall back to 0 while loading
   const { overallProgressPercent, roadmapsCompleted, totalRoadmaps } = stats;

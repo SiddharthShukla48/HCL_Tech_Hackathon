@@ -32,7 +32,7 @@ export default function Sidebar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate('/')}
               className="flex items-center gap-2 flex-1 min-w-0 focus:outline-none"
             >
               <Logo className="w-7 h-7 shrink-0 text-primary" />

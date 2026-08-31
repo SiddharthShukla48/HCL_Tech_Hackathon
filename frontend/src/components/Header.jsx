@@ -2,8 +2,7 @@ import { mockUser } from '../data/mockUser';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
-  // Single initial only
-  const initial = mockUser.name.charAt(0).toUpperCase();
+  const initial = mockUser?.name?.charAt(0)?.toUpperCase() ?? '?';
 
   return (
     <header className="h-16 bg-base-100 flex items-center justify-end px-6 shrink-0 gap-6">
@@ -13,7 +12,7 @@ export default function Header() {
           {initial}
         </div>
         <span className="font-sans font-medium text-sm text-base-content pr-2">
-          {mockUser.name}
+          {mockUser?.name ?? 'Loading...'}
         </span>
       </div>
     </header>
